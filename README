@@ -1,0 +1,49 @@
+Pentru implementarea temei am decis sa nu schimb structurile ,  
+dar am creat 3 functii ajutatoare in rezolvarea task-urilor : 
+"swap_File" interschimba 2 fisiere , "swap_Dir" face swap 
+intre directoare si implicit si intre sistemul lor intern de 
+fisiere si directoare , iar "free_rec" este o functie recursiva 
+care elibereaza memoria. Am mai declarat si macro-ul HOME 
+pentru sirul "/home".
+ 
+Pentru primele functii din tema , "touch" si "mkdir" ,
+respectiv "rm" si "rmdir" a fost oarecum acelasi lucru
+, diferenta fiind data de tipul care a fost creat : director
+sau fisier . Pentru "touch" am parcurs sistemul de fisiere
+si am verificat daca nu deja exista un fisier/director cu numele 
+dat . Daca nu exista , creez o noua structura "File" , fac 
+legaturile necesare si verifica daca exista sau nu deja fisiere
+in sistem . Daca exista se adauga la finalul listei . Acelasi meca-
+nism am utilizat si pentru "mkdir" cu mentiunea ca de aceasta data
+am navigat prin directoare cand am adaugat in lista . Pentru "rm" 
+am analizat mai multe cazuri si pentru fiecare situatie am afisat
+fie mesajul corespunzator , fie am dezalocat si eliberat memoria
+pentru fisierul cu numele dat . Analog , la "rmdir" am folosit ace-
+leasi metode cu mentiunea ca am folosit free_rec pentru a elibera
+directoarele . Pentru "ls" am afisat continutul directorului
+curent prin parcurgerea directoarelor si fisierelor , iar 
+pentru "cd" am verificat cazurile in care se poate schimba 
+directorul si in caz afirmativ fac o parcurgere prin sistemul
+curent pana cand se gaseste numele din antet. Daca numele este ".." 
+, noul director este parintele celui curent , iar daca parintele 
+este "NULL" ramane nemodificat. Pentru "pwd" am 
+facut recursiv concatenarea urcand mereu la parintele directorului
+curent. Am realocat sirul pe care trebuia sa il returnez si am
+concatenat la acesta numele directorului . Functia "tree" am facut-o 
+tot recursiv , o parcurgere pe nivele incrementand la fiecare apel nivelul. 
+Pentru "mv" am verificat daca nu exista deja numele nou , iar in caz afirma-
+tiv se inlocuieste numele , iar noul director/fisier obtinut se 
+adauga la finalul listei din care face parte.Pentru directoare se muta
+implicit si continutul lor , fara a fi sters.
+
+In main , am luat cazurile de comenzi si pentru fiecare am apelat
+functia respectiv creata , iar la final am eliberat memoria pentru
+sirul de comenzi. Pentru sirul de comenzi am facut sa dispara acel '\n'
+de la finalul comenzilor . Am considerat un director curent caruia i-am
+facut legaturile la "NULL" , iar numele a fost dat de macro-ul definit
+"/home". 
+
+Ca timp de lucru , tema mi-a luat cateva zile , deoarece am
+avut anumite leak-uri si mici erori care mi-au dat batai de cap :)) .
+
+
